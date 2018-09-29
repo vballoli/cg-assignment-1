@@ -1,0 +1,91 @@
+\hypertarget{algorithms_8c}{}\section{algorithms.\+c File Reference}
+\label{algorithms_8c}\index{algorithms.\+c@{algorithms.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$G\+L/glut.\+h$>$}\newline
+Include dependency graph for algorithms.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{algorithms_8c_a1fec2e1b3d8ec39f4ea153d0123752b9}{init\+\_\+window} (float point\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Initializes the Open\+GL window where all plots will be rendered. \end{DoxyCompactList}\item 
+void \hyperlink{algorithms_8c_a9eeb34fec1fdd6a05820cd61f0e72433}{midpoint\+\_\+line} (int start\+\_\+vertex\mbox{[}$\,$\mbox{]}, int end\+\_\+vertex\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Midpoint Line Algorithm. \end{DoxyCompactList}\item 
+void \hyperlink{algorithms_8c_a6ed09deb1974fc8f092693e0d67a44b8}{midpoint\+\_\+circle} (int radius)
+\begin{DoxyCompactList}\small\item\em Midpoint Circle Algorithm. \end{DoxyCompactList}\item 
+void \hyperlink{algorithms_8c_a4ea013001a5fb47853d0fab8f8de35cd}{display} (void)
+\begin{DoxyCompactList}\small\item\em Runs Mipoint Line Algorithm and Midpoint Circle Algorithm and plots on the window. \end{DoxyCompactList}\item 
+int \hyperlink{algorithms_8c_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{algorithms_8c_a4ea013001a5fb47853d0fab8f8de35cd}\label{algorithms_8c_a4ea013001a5fb47853d0fab8f8de35cd}} 
+\index{algorithms.\+c@{algorithms.\+c}!display@{display}}
+\index{display@{display}!algorithms.\+c@{algorithms.\+c}}
+\subsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily void display (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Runs Mipoint Line Algorithm and Midpoint Circle Algorithm and plots on the window. 
+
+This is the callback function passed into Open\+GL. Runs midpoint line algorithm to plot a line from \{50,50\} to \{100,100\} Runs mipoint circle algorithm to plot a circle of radius 50 at origin. \mbox{\Hypertarget{algorithms_8c_a1fec2e1b3d8ec39f4ea153d0123752b9}\label{algorithms_8c_a1fec2e1b3d8ec39f4ea153d0123752b9}} 
+\index{algorithms.\+c@{algorithms.\+c}!init\+\_\+window@{init\+\_\+window}}
+\index{init\+\_\+window@{init\+\_\+window}!algorithms.\+c@{algorithms.\+c}}
+\subsubsection{\texorpdfstring{init\+\_\+window()}{init\_window()}}
+{\footnotesize\ttfamily void init\+\_\+window (\begin{DoxyParamCaption}\item[{float}]{point\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Initializes the Open\+GL window where all plots will be rendered. 
+
+Default\+: Set\textquotesingle{}s window co-\/ordinates ranging from -\/200 to 200 pixels in x and y axes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em point\+\_\+size} & float variable\+: Size of Pixel. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{algorithms_8c_a3c04138a5bfe5d72780bb7e82a18e627}\label{algorithms_8c_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{algorithms.\+c@{algorithms.\+c}!main@{main}}
+\index{main@{main}!algorithms.\+c@{algorithms.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{algorithms_8c_a6ed09deb1974fc8f092693e0d67a44b8}\label{algorithms_8c_a6ed09deb1974fc8f092693e0d67a44b8}} 
+\index{algorithms.\+c@{algorithms.\+c}!midpoint\+\_\+circle@{midpoint\+\_\+circle}}
+\index{midpoint\+\_\+circle@{midpoint\+\_\+circle}!algorithms.\+c@{algorithms.\+c}}
+\subsubsection{\texorpdfstring{midpoint\+\_\+circle()}{midpoint\_circle()}}
+{\footnotesize\ttfamily void midpoint\+\_\+circle (\begin{DoxyParamCaption}\item[{int}]{radius }\end{DoxyParamCaption})}
+
+
+
+Midpoint Circle Algorithm. 
+
+Implements midpoint algorithm to choose between East or South-\/\+East pixel. Algorithm return co-\/ordinates one quadrant and that is repeated across all the other seven quadrants.
+
+
+\begin{DoxyParams}{Parameters}
+{\em radius} & integer variable\+: Radius of the circle. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{algorithms_8c_a9eeb34fec1fdd6a05820cd61f0e72433}\label{algorithms_8c_a9eeb34fec1fdd6a05820cd61f0e72433}} 
+\index{algorithms.\+c@{algorithms.\+c}!midpoint\+\_\+line@{midpoint\+\_\+line}}
+\index{midpoint\+\_\+line@{midpoint\+\_\+line}!algorithms.\+c@{algorithms.\+c}}
+\subsubsection{\texorpdfstring{midpoint\+\_\+line()}{midpoint\_line()}}
+{\footnotesize\ttfamily void midpoint\+\_\+line (\begin{DoxyParamCaption}\item[{int}]{start\+\_\+vertex\mbox{[}$\,$\mbox{]},  }\item[{int}]{end\+\_\+vertex\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Midpoint Line Algorithm. 
+
+Implements midpoint algorithm to choose between East or North-\/\+East pixel.
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+\_\+vertex\mbox{[}$\,$\mbox{]}} & integer array of length 2 \+: \{x,y\} starting vertex of the line. \\
+\hline
+{\em end\+\_\+vertex\mbox{[}$\,$\mbox{]}} & integer array of length 2 \+: \{x,y\} ending vertex of the line. \\
+\hline
+\end{DoxyParams}

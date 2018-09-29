@@ -1,6 +1,55 @@
 #include<stdio.h>
 #include<GL/glut.h>
 
+/*! \brief Initializes the OpenGL window where all plots will be rendered.
+*
+*   Default: Set's window co-ordinates ranging from -200 to 200 pixels in x and y axes.
+*
+*   \param point_size float variable: Size of Pixel.
+*/
+void init_window(float point_size);
+
+/*! \brief Midpoint Line Algorithm.
+*
+*   Implements midpoint algorithm to choose between East or North-East pixel.
+*
+*   \param start_vertex[] integer array of length 2 : {x,y} starting vertex of the line.
+*   \param end_vertex[] integer array of length 2 : {x,y} ending vertex of the line.
+*/
+void midpoint_line (int start_vertex[], int end_vertex[]);
+
+/*! \brief Midpoint Circle Algorithm
+*
+*   Implements midpoint algorithm to choose between East or South-East pixel.
+*   Algorithm return co-ordinates one quadrant and that is repeated across all
+*   the other seven quadrants.
+*
+*   \param radius integer variable: Radius of the circle.
+*/
+void midpoint_circle (int radius);
+
+/*! \brief Runs Mipoint Line Algorithm and Midpoint Circle Algorithm and plots on the window
+*
+*   This is the callback function passed into OpenGL.
+*   Runs midpoint line algorithm to plot a line from {50,50} to {100,100}
+*   Runs mipoint circle algorithm to plot a circle of radius 50 at origin.
+*/
+void display (void);
+
+int main (int argc, char** argv)
+{
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+
+    glutInitWindowSize(400, 400); // Window Dimensions
+    glutInitWindowPosition(200, 200); // Window position on the screen
+
+    glutCreateWindow("Midpoint Algorithms"); // Naming the Window
+    init_window(1.0);
+
+    glutDisplayFunc(display); // Pass the callback function
+    glutMainLoop();
+}
 
 void init_window (float point_size)
 {
@@ -9,8 +58,7 @@ void init_window (float point_size)
     glPointSize(point_size); // Set's size of point plotted on the window
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    // setting window dimension in X- and Y- direction
-    gluOrtho2D(-200, 200, -200, 200);
+    gluOrtho2D(-200, 200, -200, 200); // Window co-ordinate system.
 }
 
 void midpoint_line(int start_vertex[], int end_vertex[])
@@ -86,28 +134,10 @@ void display (void)
 {
     glClear(GL_COLOR_BUFFER_BIT);
     glBegin(GL_POINTS);
-    int start_vertex[] = {0,0};
+    int start_vertex[] = {50,50};
     int end_vertex[] = {100,100};
     midpoint_line(start_vertex, end_vertex);
     midpoint_circle(50);
     glEnd();
     glFlush();
-}
-
-
-int main (int argc, char** argv)
-{
-    glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-
-    // giving window size in X- and Y- direction
-    glutInitWindowSize(400, 400);
-    glutInitWindowPosition(200, 200);
-
-    // Giving name to window
-    glutCreateWindow("Midpoint Algorithms");
-    init_window(1.0);
-
-    glutDisplayFunc(display);
-    glutMainLoop();
 }

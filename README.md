@@ -1,19 +1,34 @@
-# CG Assignment 1
+# Computer Graphics Assignment 1
 
 This repository contains code to IS F311 Computer Graphics assignment 1
 using OpenGL and GLUT libraries in C.
 
-## Build Instructions
+## Requirements
 
-`
-Linux: sudo apt-get install freeglut3-dev
-`
+OpenGL: GL/glut.h
+Math: math.h
 
-## Run Instructions
+Linux: ` sudo apt-get install freeglut3-dev doxygen`.
 
-gcc file.c -lGL -lGLU -lglut -lm
+Mac: `Import GL through XCode binaries`.
 
-## Codes
+## Run
 
-1. algorithms.c - Contains implementation of Midpoint Line algorithm
-and Midpoint Circle algorithm.
+~: `gcc file.c -lGL -lGLU -lglut`
+
+## Files
+
+1. algorithms.c - Implements Midpoint Line algorithm and Midpoint Circle algorithm.
+2. fractals.c - Implements fractal using a recursive funtion and above algorithms.
+3. html/index.html - Base documentation generated using Doxygen.
+4. Doxyfile - Config file for generating documentation from comments of methods. Required for Doxygen
+
+## Documentation
+
+Auto-generated using Doxygen.
+
+Build documentation: Run ~: `doxygen Doxyfile`
+
+HTML Documentation Location: `html/index.html`
+
+LaTex Documentation Location:  `latex/`
