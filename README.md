@@ -13,8 +13,21 @@ Linux: ` sudo apt-get install freeglut3-dev doxygen`.
 Mac: `Import GL through XCode binaries`.
 
 ## Run
+### Run project
+
+~: `bash run.sh`
+
+### Run individual files
 
 ~: `gcc file.c -lGL -lGLU -lglut`
+
+(if includes math.h)
+
+~: `gcc file.c -lm -lGL -lGLU -lglut`
+
+### Open documentation
+
+Linux-only: `bash doc.sh`
 
 ## Files
 
@@ -32,3 +45,8 @@ Build documentation: Run ~: `doxygen Doxyfile`
 HTML Documentation Location: `html/index.html`
 
 LaTex Documentation Location:  `latex/`
+
+## Contribution Guidelines
+
+1. Write docstrings in the Javadoc format as set in the Doxyfile config.
+2. Store images in result folder.

@@ -50,6 +50,7 @@ int main (int argc, char** argv)
 
     glutDisplayFunc(display);
     glutMainLoop();
+    return 0;
 }
 
 void init_window (float point_size)
@@ -153,18 +154,28 @@ void midpoint_line_slope(int start_vertex[], float slope, int length)
 void draw(int current_position[], int max_depth, int length)
 {
   if ((current_position[0] > max_depth) || (current_position[1] > max_depth)) {
+    glEnd();
+    glFlush();
     return;
   }
 
   // Slope in degrees
-  int slope_p = 40 + (rand() % 40);
-  int slope_n = 40 - (rand() % 40);
-  double val = (float)rand()/RAND_MAX;
-  glColor3f(val, val, val);
+  int slope_p = 40 + (rand() % 50);
+  int slope_n = 40 - (rand() % 50);
+  int color = rand();
+  if( (color % 3) == 0) {
+    glColor3f(0.2, 0.2, 1.0);
+  } else if( (color % 3) == 1) {
+    glColor3f(1.0, 0.2, 0.5);
+  } else {
+    glColor3f(0.5, 0.9, 0.5);
+  }
   midpoint_line_slope(current_position, slope_p, length);
   midpoint_line_slope(current_position, slope_n, length);
-  current_position[0] += (rand() % 2);
+  midpoint_line_slope(current_position, -slope_p, length);
+  midpoint_line_slope(current_position, -slope_n, length);
   current_position[1] += (rand() % 2);
+  current_position[0] += (rand() % 4);
   draw(current_position, max_depth, length);
 }
 
@@ -173,7 +184,7 @@ void display (void)
     glClear(GL_COLOR_BUFFER_BIT);
     glBegin(GL_POINTS);
     int start[] = {0,0};
-    draw(start, 200, 15);
+    draw(start, 200, 10);
     glEnd();
     glFlush();
 }

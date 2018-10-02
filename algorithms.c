@@ -49,6 +49,7 @@ int main (int argc, char** argv)
 
     glutDisplayFunc(display); // Pass the callback function
     glutMainLoop();
+    return 0;
 }
 
 void init_window (float point_size)
